@@ -17,8 +17,18 @@
  * something();
  * ```
  */
-declare module 'module-name' {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const whatever: any;
-  export = whatever;
+declare module 'xss-middleware' {
+  import { IFilterXSSOptions } from 'xss';
+
+  export type Sanitized<T> = T extends (...args: unknown[]) => unknown
+    ? T // if T is a function, return it as is
+    : T extends Record<string, unknown>
+    ? {
+        readonly [K in keyof T]: Sanitized<T[K]>;
+      }
+    : T;
+
+  export type SanitizeOptions = IFilterXSSOptions & {
+    readonly whiteList?: IFilterXSSOptions['whiteList'];
+  };
 }
