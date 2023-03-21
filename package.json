@@ -1,13 +1,27 @@
 {
   "name": "xss-middleware",
+  "author": "Louis-Kaan Ay",
   "version": "1.0.0",
   "description": "A powerful middleware for securing your express.js applications against cross-site scripting (XSS) attacks",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/Louis3797/xss-middleware",
+  "bugs": {
+    "url": "https://github.com/Louis3797/xss-middleware/issues"
+  },
+  "homepage": "https://github.com/Louis3797/xss-middleware",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "xss",
+    "xss-middleware",
+    "sanitize",
+    "express-xss-middleware",
+    "filter",
+    "cross-site scripting",
+    "sanitization",
+    "validator"
+  ],
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",
