@@ -110,6 +110,5 @@ test('sanitize - should allow custom options', (t) => {
     stripIgnoreTagBody: ['div'],
   };
 
-  console.log(sanitize(input, options));
   t.deepEqual(sanitize(input, options), expected);
 });
