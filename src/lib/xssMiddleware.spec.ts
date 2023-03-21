@@ -2,7 +2,7 @@
 import test from 'ava';
 import { SanitizeOptions } from 'xss-middleware';
 
-import { xssMiddleware } from './xssMiddleware';
+import xssMiddleware from './xssMiddleware';
 
 test('xssMiddleware should sanitize body, query, and params when no options are passed', (t) => {
   const req = {
