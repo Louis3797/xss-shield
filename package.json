@@ -1,7 +1,7 @@
 {
   "name": "xss-middleware",
   "author": "Louis-Kaan Ay",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A powerful middleware for securing your express.js applications against cross-site scripting (XSS) attacks",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
