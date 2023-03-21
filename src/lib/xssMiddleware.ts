@@ -9,7 +9,7 @@ import { sanitize } from './sanitize';
  * @param options - Optional configuration options to customize the sanitization process.
  *
  */
-export const xssMiddleware = (options?: SanitizeOptions) => {
+function xssMiddleware(options?: SanitizeOptions) {
   return (
     req: {
       body?: Record<string, unknown>;
@@ -26,4 +26,6 @@ export const xssMiddleware = (options?: SanitizeOptions) => {
 
     next();
   };
-};
+}
+
+export default xssMiddleware;
