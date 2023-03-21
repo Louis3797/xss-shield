@@ -1,3 +1,3 @@
 import xssMiddleware from './lib/xssMiddleware';
 
-export default xssMiddleware;
+export default { xssMiddleware };
