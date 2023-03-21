@@ -20,7 +20,7 @@ test('xssMiddleware should sanitize body, query, and params when no options are 
     },
   };
 
-  xssMiddleware()(req, res, next);
+  xssMiddleware(req, res, next);
 
   t.deepEqual(req, expected);
 });
@@ -44,7 +44,7 @@ test('xssMiddleware should sanitize body, query, and params according to the opt
     params: { id: '<a href>Click me</a>' },
   };
 
-  xssMiddleware(options)(req, res, next);
+  xssMiddleware(req, res, next, options);
 
   t.deepEqual(req, expected);
 });
@@ -54,7 +54,7 @@ test('xssMiddleware should not throw errors when no request data is passed', (t)
   const res = {};
   const next = () => {};
 
-  t.notThrows(() => xssMiddleware()(req, res, next));
+  t.notThrows(() => xssMiddleware(req, res, next));
 });
 
 test('xssMiddleware should not throw errors when undefined request data is passed', (t) => {
@@ -62,7 +62,7 @@ test('xssMiddleware should not throw errors when undefined request data is passe
   const res = {};
   const next = () => {};
 
-  t.notThrows(() => xssMiddleware()(req, res, next));
+  t.notThrows(() => xssMiddleware(req, res, next));
 });
 
 test('xssMiddleware should call next without any parameters', (t) => {
@@ -70,5 +70,5 @@ test('xssMiddleware should call next without any parameters', (t) => {
   const res = {};
   const next = () => t.pass();
 
-  xssMiddleware()(req, res, next);
+  xssMiddleware(req, res, next);
 });

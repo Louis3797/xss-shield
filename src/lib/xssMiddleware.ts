@@ -9,23 +9,22 @@ import { sanitize } from './sanitize';
  * @param options - Optional configuration options to customize the sanitization process.
  *
  */
-function xssMiddleware(options?: SanitizeOptions) {
-  return (
-    req: {
-      body?: Record<string, unknown>;
-      query?: Record<string, unknown>;
-      params?: Record<string, unknown>;
-    },
-    _res: Record<string, unknown>,
-    // eslint-disable-next-line functional/no-return-void
-    next: (param?: unknown) => void
-  ) => {
-    req.body = sanitize(req.body, options);
-    req.query = sanitize(req.query, options);
-    req.params = sanitize(req.params, options);
+function xssMiddleware(
+  req: {
+    body?: Record<string, unknown>;
+    query?: Record<string, unknown>;
+    params?: Record<string, unknown>;
+  },
+  _res: Record<string, unknown>,
+  // eslint-disable-next-line functional/no-return-void
+  next: (param?: unknown) => void,
+  options?: SanitizeOptions
+) {
+  req.body = sanitize(req.body, options);
+  req.query = sanitize(req.query, options);
+  req.params = sanitize(req.params, options);
 
-    next();
-  };
+  next();
 }
 
 export default xssMiddleware;
