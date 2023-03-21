@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import test from 'ava';
+import type { NextFunction, Request, Response } from 'express';
 import { SanitizeOptions } from 'xss-middleware';
 
 import xssMiddleware from './xssMiddleware';
@@ -20,7 +21,11 @@ test('xssMiddleware should sanitize body, query, and params when no options are 
     },
   };
 
-  xssMiddleware()(req, res, next);
+  xssMiddleware()(
+    req as unknown as Request,
+    res as Response,
+    next as NextFunction
+  );
 
   t.deepEqual(req, expected);
 });
@@ -44,7 +49,11 @@ test('xssMiddleware should sanitize body, query, and params according to the opt
     params: { id: '<a href>Click me</a>' },
   };
 
-  xssMiddleware(options)(req, res, next);
+  xssMiddleware(options)(
+    req as unknown as Request,
+    res as Response,
+    next as NextFunction
+  );
 
   t.deepEqual(req, expected);
 });
@@ -54,7 +63,13 @@ test('xssMiddleware should not throw errors when no request data is passed', (t)
   const res = {};
   const next = () => {};
 
-  t.notThrows(() => xssMiddleware()(req, res, next));
+  t.notThrows(() =>
+    xssMiddleware()(
+      req as unknown as Request,
+      res as Response,
+      next as NextFunction
+    )
+  );
 });
 
 test('xssMiddleware should not throw errors when undefined request data is passed', (t) => {
@@ -62,7 +77,13 @@ test('xssMiddleware should not throw errors when undefined request data is passe
   const res = {};
   const next = () => {};
 
-  t.notThrows(() => xssMiddleware()(req, res, next));
+  t.notThrows(() =>
+    xssMiddleware()(
+      req as unknown as Request,
+      res as Response,
+      next as NextFunction
+    )
+  );
 });
 
 test('xssMiddleware should call next without any parameters', (t) => {
@@ -70,5 +91,9 @@ test('xssMiddleware should call next without any parameters', (t) => {
   const res = {};
   const next = () => t.pass();
 
-  xssMiddleware()(req, res, next);
+  xssMiddleware()(
+    req as unknown as Request,
+    res as Response,
+    next as NextFunction
+  );
 });
