@@ -1,10 +1,9 @@
--->
 <div align="center">
 
   <h1>xss-middleware</h1>
   
   <p>
-   This package provides a middleware for Express.js that helps protect against cross-site scripting (XSS) attacks. It's built on top of the [xss module](https://www.npmjs.com/package/xss) and is written in TypeScript.
+   This package provides a middleware for Express.js that helps protect against cross-site scripting (XSS) attacks. It's built on top of the <a href="https://www.npmjs.com/package/xss">xss module</a> and is written in TypeScript.
  
   </p>
   
