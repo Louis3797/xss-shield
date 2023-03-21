@@ -12,9 +12,9 @@ import { sanitize } from './sanitize';
 export const xssMiddleware = (options?: SanitizeOptions) => {
   return (
     req: {
-      body?: Record<string, unknown> | null;
-      query?: Record<string, unknown> | null;
-      params?: Record<string, unknown> | null;
+      body?: Record<string, unknown>;
+      query?: Record<string, unknown>;
+      params?: Record<string, unknown>;
     },
     _res: Record<string, unknown>,
     // eslint-disable-next-line functional/no-return-void
