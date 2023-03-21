@@ -102,3 +102,14 @@ test('sanitize - should allow custom XSS whiteList', (t) => {
   };
   t.deepEqual(sanitize(input, options), expected);
 });
+
+test('sanitize - should allow custom options', (t) => {
+  const input = '<div><a href="http://example.com">Example</a></div>';
+  const expected = '';
+  const options: SanitizeOptions = {
+    stripIgnoreTagBody: ['div'],
+  };
+
+  console.log(sanitize(input, options));
+  t.deepEqual(sanitize(input, options), expected);
+});
