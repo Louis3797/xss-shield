@@ -1,5 +1,5 @@
 {
-  "name": "xss-middleware",
+  "name": "xss-shield",
   "author": "Louis-Kaan Ay",
   "version": "1.0.0",
   "description": "A powerful middleware for securing your express.js applications against cross-site scripting (XSS) attacks",
@@ -14,9 +14,11 @@
   "license": "MIT",
   "keywords": [
     "xss",
+    "xss-shield",
     "xss-middleware",
     "sanitize",
     "express-xss-middleware",
+    "shield",
     "filter",
     "cross-site scripting",
     "sanitization",
