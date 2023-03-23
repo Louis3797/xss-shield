@@ -1,3 +1,3 @@
-import xssMiddleware from './lib/xssMiddleware';
+import xssShield from './lib/xssShield';
 
-export default { xssMiddleware };
+export default { xssShield };

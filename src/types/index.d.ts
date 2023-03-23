@@ -1,4 +1,4 @@
-declare module 'xss-middleware' {
+declare module 'xss-shield' {
   import type { IFilterXSSOptions } from 'xss';
 
   export type Sanitized<T> = T extends (...args: unknown[]) => unknown

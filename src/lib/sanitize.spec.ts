@@ -1,5 +1,5 @@
 import test from 'ava';
-import { SanitizeOptions } from 'xss-middleware';
+import { SanitizeOptions } from 'xss-shield';
 
 import { sanitize } from './sanitize';
 

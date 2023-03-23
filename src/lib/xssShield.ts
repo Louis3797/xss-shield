@@ -1,6 +1,6 @@
 /* eslint-disable functional/immutable-data */
 import type { NextFunction, Request, Response } from 'express';
-import { SanitizeOptions } from 'xss-middleware';
+import { SanitizeOptions } from 'xss-shield';
 
 import { sanitize } from './sanitize';
 
@@ -10,7 +10,7 @@ import { sanitize } from './sanitize';
  * @param options - Optional configuration options to customize the sanitization process.
  *
  */
-function xssMiddleware(options?: SanitizeOptions) {
+function xssShield(options?: SanitizeOptions) {
   return (req: Request, _res: Response, next: NextFunction) => {
     if (req.body) req.body = sanitize(req.body, options);
     if (req.query) req.query = sanitize(req.query, options);
@@ -20,4 +20,4 @@ function xssMiddleware(options?: SanitizeOptions) {
   };
 }
 
-export default xssMiddleware;
+export default xssShield;

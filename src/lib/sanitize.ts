@@ -1,5 +1,5 @@
 import xss from 'xss';
-import { Sanitized, SanitizeOptions } from 'xss-middleware';
+import { Sanitized, SanitizeOptions } from 'xss-shield';
 
 /**
  * Sanitizes the provided data by applying XSS filtering and returning a copy of the data with all properties and values set as readonly.
